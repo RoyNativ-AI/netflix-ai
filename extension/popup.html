@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netflix AI Search</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      width: 320px;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #141414;
+      color: #fff;
+      padding: 16px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .logo {
+      width: 32px;
+      height: 32px;
+      background: #e50914;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .section {
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 12px;
+      color: #808080;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .input-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    input {
+      flex: 1;
+      padding: 10px 12px;
+      background: #333;
+      border: 1px solid #444;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 13px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #e50914;
+    }
+
+    button {
+      padding: 10px 16px;
+      background: #e50914;
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background: #f40612;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px;
+      background: #1a1a1a;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #46d369;
+    }
+
+    .status-dot.error {
+      background: #e50914;
+    }
+
+    .status-dot.warning {
+      background: #f5c518;
+    }
+
+    .info {
+      font-size: 12px;
+      color: #808080;
+      line-height: 1.5;
+    }
+
+    .message {
+      padding: 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+
+    .message.success {
+      background: #1a3d1a;
+      color: #46d369;
+    }
+
+    .message.error {
+      background: #3d1a1a;
+      color: #ff6b6b;
+    }
+
+    .footer {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid #333;
+      font-size: 11px;
+      color: #666;
+      text-align: center;
+    }
+
+    a {
+      color: #e50914;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">AI</div>
+    <div class="title">Netflix AI Search</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Server Status</div>
+    <div class="status">
+      <span class="status-dot" id="statusDot"></span>
+      <span id="statusText">Checking...</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">OpenAI API Key</div>
+    <div class="input-group">
+      <input type="password" id="apiKey" placeholder="sk-..." />
+      <button id="saveKey">Save</button>
+    </div>
+    <div id="keyMessage"></div>
+  </div>
+
+  <div class="section">
+    <div class="info">
+      Open Netflix and click the <strong>AI Search</strong> button in the header to search using natural language.
+    </div>
+  </div>
+
+  <div class="footer">
+    Backend: <a href="http://localhost:3456" target="_blank">localhost:3456</a>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
